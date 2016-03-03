@@ -2,39 +2,12 @@
 <!DOCTYPE timetable SYSTEM "timetable.dtd">
 
 <timetable>
-  <day>Monday</day>
-  <booking>
-    <timeslot>1:30</timeslot>
-    <course>ACIT4770 Tutorial</course>
-    <room>SE12-306</room>
-    <instructor>Trevor Lord</instructor>
-  </booking>
-  <day>Tuesday</day>
-  <booking>
-    <timeslot></timeslot>
-    <course></course>
-    <room></room>
-    <instructor></instructor>
-  </booking>
-  <day>Wednesday</day>
-  <booking>
-    <timeslot></timeslot>
-    <course></course>
-    <room></room>
-    <instructor></instructor>
-  </booking>
-  <day>Thursday</day>
-  <booking>
-    <timeslot></timeslot>
-    <course></course>
-    <room></room>
-    <instructor></instructor>
-  </booking>
-  <day>Friday</day>
-  <booking>
-    <timeslot></timeslot>
-    <course></course>
-    <room></room>
-    <instructor></instructor>
-  </booking>
-</timetable>
+	  <dayfacet>
+		<day>
+			<booking>
+			
+			</booking>
+		</day>
+	  </dayfacet>
+  </day>
+  
