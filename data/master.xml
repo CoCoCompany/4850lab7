@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<!DOCTYPE doc [
+<!ENTITY days SYSTEM "days.xml">
+<!ENTITY courses SYSTEM "courses.xml">
+<!ENTITY times SYSTEM "times.xml">
+]>
+<data>
+&days;
+&courses;
+&times;
+</data>

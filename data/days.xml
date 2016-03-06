@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE timetable SYSTEM "timetable.dtd">
 
-<timetable>
-	  <dayfacet>
-		<day>
-			<booking>
-			
-			</booking>
-		</day>
-	  </dayfacet>
-  </day>
-  
+<days>
+  <day day="Friday">
+		<booking>
+			<timeslot>8:30-9:30</timeslot>
+			<course>ACIT4660</course>
+			<instructor>Steve Fabz</instructor>
+			<room>SW9-206</room>
+		</booking>
+	</day>
+</days>
