@@ -5,35 +5,35 @@
 <!ENTITY times SYSTEM "times.xml">
 ]>
 <data>
-  <days>
-    <day day="Friday">
-  		<booking>
-  			<timeslot>8:30-9:30</timeslot>
-  			<course>ACIT4660</course>
-  			<instructor>Steve Fabz</instructor>
-  			<room>SW9-206</room>
-  		</booking>
-  	</day>
-  </days>
-  <courses>
-    <course course="ACIT4660">
-      <booking>
-        <timeslot>8:30-9:30</timeslot>
-        <instructor>Steve Fabz</instructor>
-        <room>SW9-206</room>
-        <day>Friday</day>
-      </booking>
-    </course>
-  </courses>
+	<dayfacet>
+		<day day="Friday">
+			<booking>
+				<clock>8:30-10:30</clock>
+				<course course="ACIT4660" />
+				<instructor>Steve Fabz</instructor>
+				<room>SW9-206</room>
+			</booking>
+		</day>
+	</dayfacet>
+	<coursefacet>
+		<course course="ACIT4660">
+			<booking>
+				<clock>8:30-10:30</clock>
+				<instructor>Steve Fabz</instructor>
+				<room>SW9-206</room>
+				<day day="Friday" />
+			</booking>
+		</course>
+	</coursefacet>
 	<timefacet>
-		<timeslot>8:30-9:30</timeslot>
-			<whichday>
-				<day>friday</day>
-					<booking>
-						<coursename>ACIT4660</coursename>
-						<instructor>Steve Fabwd</instructor>
-						<room>SW9 206</room>
-					<booking>
-			</whichday>
+		<timeslot>
+			<clock>8:30-9:30</clock>
+			<booking>
+				<day day="Friday" />
+				<course course="ACIT4660" />
+				<instructor>Steve Fabz</instructor>
+				<room>SW9 206</room>
+			<booking>
+		</timeslot>
 	</timefacet>
 </data>

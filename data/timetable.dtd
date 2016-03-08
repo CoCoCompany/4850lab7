@@ -1,10 +1,20 @@
-<!ELEMENT data (days,courses,timeschedule)>
-<!ELEMENT days (day)+>
-<!ELEMENT day (booking)+>
-<!ELEMENT booking (timeslot?,course?,day?,instructor,room)>
-<!ELEMENT timeslot (#PCDATA)>
-<!ELEMENT course (#PCDATA)>
+<!ELEMENT data (dayfacet,coursefacet,timefacet)>
+
+<!ELEMENT day (booking?)>
+<!ATTLIST day day (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) "Monday" >
+
+<!ELEMENT course (booking?)>
+<!ATTLIST course course (ACIT4620|ACIT4650|ACIT4660|ACIT4770|ACIT4850|ACIT4910) "ACIT4620" >
+
+<!ELEMENT timeslot (booking?,clock)>
+
+
+<!ELEMENT booking (clock?,course?,day?,instructor,room)>
 <!ELEMENT instructor (#PCDATA)>
 <!ELEMENT room (#PCDATA)>
-<!ELEMENT timesfacet (timeslots)+>
-<!ELEMENT timeslots (booking)+>
+<!ELEMENT clock (#PCDATA)>
+
+<!ELEMENT timefacet (timeslots+)>
+<!ELEMENT dayfacet (day+)>
+<!ELEMENT coursefacet (course+)>
+
