@@ -1,0 +1,10 @@
+<!ELEMENT data (days,courses,timeschedule)>
+<!ELEMENT days (day)+>
+<!ELEMENT day (booking)+>
+<!ELEMENT booking (timeslot?,course?,day?,instructor,room)>
+<!ELEMENT timeslot (#PCDATA)>
+<!ELEMENT course (#PCDATA)>
+<!ELEMENT instructor (#PCDATA)>
+<!ELEMENT room (#PCDATA)>
+<!ELEMENT timesfacet (timeslots)+>
+<!ELEMENT timeslots (booking)+>
