@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE note SYSTEM "timetable.dtd">
+<data>
+	<dayfacet>
+		<day day="Friday">
+			<booking>
+				<clock>8:30-10:30</clock>
+				<course course="ACIT4660" />
+				<instructor>Steve Fabz</instructor>
+				<room>SW9-206</room>
+			</booking>
+		</day>
+	</dayfacet>
+	<coursefacet>
+		<course course="ACIT4660">
+			<booking>
+				<clock>8:30-10:30</clock>
+				<instructor>Steve Fabz</instructor>
+				<room>SW9-206</room>
+				<day day="Friday" />
+			</booking>
+		</course>
+	</coursefacet>
+	<timefacet>
+		<timeslot>
+			<clock>8:30-9:30</clock>
+			<booking>
+				<day day="Friday" />
+				<course course="ACIT4660" />
+				<instructor>Steve Fabz</instructor>
+				<room>SW9 206</room>
+			<booking>
+		</timeslot>
+	</timefacet>
+</data>

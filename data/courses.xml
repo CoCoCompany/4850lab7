@@ -1,0 +1,10 @@
+<courses>
+  <course course="ACIT4660">
+    <booking>
+      <timeslot>8:30-9:30</timeslot>
+      <instructor>Steve Fabz</instructor>
+      <room>SW9-206</room>
+      <day>Friday</day>
+    </booking>
+  </course>
+</courses>
