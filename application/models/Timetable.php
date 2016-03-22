@@ -12,8 +12,8 @@ class Timetable extends CI_Model {
     protected $timefacet = array();
     protected $dayfacet = array();
     protected $coursefacet = array();
-    protected $days = array('Monday', 'Tuesday', 'Wednesday');
-    protected $times = array('8:30-9:30', '9:30-10:30');
+    protected $days = array(array('day'=>'Monday'), array('day'=>'Tuesday'), array('day'=>'Wednesday'));
+    protected $times = array(array('time'=>'8:30-9:30'),array('time'=>'9:30-10:30'));
     
     public function __construct() {
         parent::__construct();
@@ -86,5 +86,20 @@ class Booking extends CI_Model {
     }
     public function setDay($in){
         $this->day = $in;
+    }
+    public function getCourse(){
+        return $this->course;
+    }
+    public function getDay(){
+        return $this->day;
+    }
+    public function getClock(){
+        return $this->clock;
+    }
+    public function getInstructor(){
+        return $this->instructor;
+    }
+    public function getRoom(){
+        return $this->room;
     }
 }
