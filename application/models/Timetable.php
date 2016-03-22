@@ -26,7 +26,7 @@ class Timetable extends CI_Model {
   			$record->day = (string) $this->xml->dayfacet->day['day'];
   			$this->dayfacet[] = $record;
   		}
-  		$counter = 0;
+  		
   		foreach ($this->xml->timefacet->timeslot->booking as $booking){
   			$record = new stdClass();
   			$record->course = (string) $booking->course['course'];
@@ -34,10 +34,10 @@ class Timetable extends CI_Model {
   			$record->instructor = (string) $booking->instructor;
   			$record->room = (string) $booking->room;
   			$record->clock = (string) $this->xml->timefacet->timeslot->clock;
-  			$this->timefacet[$counter] = $record;
+  			$this->timefacet[] = $record;
   			$counter ++;
   		}
-  		$counter = 0;
+  		
   		foreach ($this->xml->coursefacet->course->booking as $booking){
   			$record = new stdClass();
   			$record->clock = (string) $booking->clock;
@@ -45,33 +45,10 @@ class Timetable extends CI_Model {
   			$record->instructor = (string) $booking->instructor;
   			$record->room = (string) $booking->room;
   			$record->course = (string) $this->xml->coursefacet->course['course'];
-  			$this->coursefacet[$counter] = $record;
+  			$this->coursefacet[] = $record;
   			$counter ++;
   		}
     }
 
-    function getDays(){
-      return $this->dayfacet;
-    }
-	function getDay(){
-		if (isset($this->dayfacet[$code]))
-			return $this->dayfacet[$code];
-		else
-			return null;
-
-    }
-    function getTime($code){
-		if (isset($this->timefacet[$code]))
-			return $this->timefacet[$code];
-		else
-			return null;
-    }
-
-    function getCourse(){
-		if (isset($this->coursefacet[$code]))
-			return $this->coursefacet[$code];
-		else
-			return null;
-    }
 
 }
