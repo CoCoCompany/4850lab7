@@ -15,7 +15,6 @@
     <input type='submit' value='Search'>
   </form>
 </div>
-</div>
 <div class="facets">
   {facets}
   <div class="facet">
