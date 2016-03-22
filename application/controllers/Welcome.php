@@ -26,6 +26,8 @@ class Welcome extends Application {
 	public function index()
 	{
 		$this->load->helper('directory');
+		$this->data['pagebody'] = 'homepage';
+		/*
 		$candidates = directory_map(DATAPATH);
 		sort($candidates);
 		foreach($candidates as $file){
@@ -33,10 +35,40 @@ class Welcome extends Application {
 				$bookings[] = array('filename' => substr($file, 0, -4));
 			}
 		}
+		*/
 
-		$this->data['bookings'] = $bookings;
-		$this->data['pagebody'] = 'homepage';
+		$facets = array(
+			array('facet' => 'day'),
+			array('facet' => 'timeslot'),
+			array('facet' => 'course')
+		);
+		/*
+		$facets[] = array('day','timeslot','course');
+		foreach($facets as $facet){
+			$facetChoices[] = array('facet'=>$facet);
+		}
+		*/
+		$this->data['facets'] = $facets;
 		$this->render();
+	}
 
+	public function showTimetable($facet){
+		$this->data['pagebody'] = 'timetable';
+		$timetable = new Timetable();
+		switch($facet){
+			case 'day':
+				foreach($timetable->getDays() as $record){
+					$bookings[] = array('timeslot' => $record->clock, 'course' => $record->course, 'day' => $record->day);
+				}
+				break;
+			case 'timeslot':
+				break;
+			case 'course':
+				break;
+			default:
+
+		}
+		$this->data['bookings'] = $bookings;
+		$this->render();
 	}
 }

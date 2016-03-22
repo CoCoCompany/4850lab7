@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>ACIT4B Timetable</title>
-  </head>
-  <body>
-    <div>
-      {content}
-    </div>
-  </body>
-</html>
+<div class="facets">
+  {facets}
+  <div class="facet">
+    <a href="welcome/showTimetable/{facet}">{facet} facet</a>
+  </div>
+  {/facets}
+</div>
