@@ -59,6 +59,8 @@ class Welcome extends Application {
 	}
 
 	public function search(){
+		//$data['results'] = $this->load->view('booking',NULL,TRUE);
+		//$data = array('content'=>$this->load->view('search_result','',TRUE),'searchResult'=>$this->load->view(''))
 		$this->data['pagebody'] = 'search_result';
 		$timetable = new Timetable();
 		$day = $this->input->post('daySelect');
@@ -67,19 +69,27 @@ class Welcome extends Application {
 		$timesSearchResult = $timetable->searchByTimes($day,$timeslot);
 		$coursesSearchResult = $timetable->searchByCourses($day,$timeslot);
 		if(count($daysSearchResult) == 1 && count($timesSearchResult) == 1 && count($coursesSearchResult) == 1){
-			$this->data['message'] = "Bingo!";
 			//$this->data['searchResult'] = 'booking';
+
+			//$this->load->view('search_result',$this->data);
+			$this->data['message'] = "Bingo!";
+
 			$bookingResult = array(
 				'timeslot' => $daysSearchResult[0]->getClock(),
 				'course' => $daysSearchResult[0]->getCourse(),
 				'day' => $daysSearchResult[0]->getDay(),
 				'instructor' => $daysSearchResult[0]->getInstructor(),
 				'room' => $daysSearchResult[0]->getRoom());
+			print_r($bookingResult);
 			$this->data = array_merge($this->data, $bookingResult);
+			$data['searchResult'] = $this->load->view('booking',$bookingResult,TRUE);
+			$this->data['searchResult'] = $data['searchResult'];
 		}
 		else{
-			$this->data['message'] = "Not bingo...";
 			$this->data['searchResult'] = 'timetable';
+			//$this->load->view('search_result',$this->data);
+			$this->data['message'] = "Not bingo...";
+
 			//$this->data['bookingContent'] = 'booking';
 			$searchResult = array(
 				array('facet'=>'day', 'bookings'=>$daysSearchResult),
@@ -90,6 +100,7 @@ class Welcome extends Application {
 		}
 
 		//$this->data['searchResult'] = $searchResult;
+		//$this->parser->parse('search_result',$data);
 		$this->render();
 	}
 
