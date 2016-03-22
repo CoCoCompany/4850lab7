@@ -66,11 +66,16 @@ class Welcome extends Application {
 		$daysSearchResult = $timetable->searchByDays($day,$timeslot);
 		$timesSearchResult = $timetable->searchByTimes($day,$timeslot);
 		$coursesSearchResult = $timetable->searchByCourses($day,$timeslot);
-		if(count($daysSearchResult) == 1 && count($timesSearchResult) == 1 && count($coursesSearchResult) == 1 &&
-			$daysSearchResult[0] === $timesSearchResult[0] && $timesSearchResult[0] == $coursesSearchResult[0]){
+		if(count($daysSearchResult) == 1 && count($timesSearchResult) == 1 && count($coursesSearchResult) == 1){
 			$this->data['message'] = "Bingo!";
-			$this->data['searchResult'] = 'booking';
-			$this->data = array_merge($this->data, $daysSearchResult[0]);
+			//$this->data['searchResult'] = 'booking';
+			$bookingResult = array(
+				'timeslot' => $daysSearchResult[0]->getClock(),
+				'course' => $daysSearchResult[0]->getCourse(),
+				'day' => $daysSearchResult[0]->getDay(),
+				'instructor' => $daysSearchResult[0]->getInstructor(),
+				'room' => $daysSearchResult[0]->getRoom());
+			$this->data = array_merge($this->data, $bookingResult);
 		}
 		else{
 			$this->data['message'] = "Not bingo...";
