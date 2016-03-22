@@ -25,22 +25,22 @@ class Timetable extends CI_Model {
         foreach ($this->xml->dayfacet->day as $stuff) {
             $record = new Booking($stuff);
             $record->setDay($stuff['day']);
-            $record->setCourse($stuff->course);
-            $record->setClock($stuff->clock);
+            $record->setCourse($stuff->booking['course']);
+            $record->setClock($stuff->booking['clock']);
             $this->dayfacet[] = $record;
         }
         foreach ($this->xml->timefacet->timeslot as $stuff) {
             $record = new Booking($stuff);
             $record->setClock($stuff['clock']);
-            $record->setDay($stuff->day);
-            $record->setCourse($stuff->course);
+            $record->setDay($stuff->booking['day']);
+            $record->setCourse($stuff->booking['course']);
             $this->timefacet[] = $record;
         }
         foreach ($this->xml->coursefacet->course as $stuff) {
             $record = new Booking($stuff);
             $record->setCourse($stuff['course']);
-            $record->setClock($stuff->clock);
-            $record->setDay($stuff->day);
+            $record->setClock($stuff->booking['clock']);
+            $record->setDay($stuff->booking['day']);
             $this->coursefacet[] = $record;
         }
     }
@@ -49,7 +49,7 @@ class Timetable extends CI_Model {
         $result = array();
         foreach ($this->dayfacet as $obj){
             if($obj->getDay() == $day && $obj->getClock() == $time){
-                $result[] += $obj;       
+                $result[] = $obj;       
             }
         }
         return $result;
@@ -58,7 +58,7 @@ class Timetable extends CI_Model {
         $result = array();
         foreach ($this->timefacet as $obj){
             if($obj->getDay() == $day && $obj->getClock() == $time){
-                $result[] += $obj;       
+                $result[] = $obj;       
             }
         }
         return $result;
@@ -67,7 +67,7 @@ class Timetable extends CI_Model {
         $result = array();
         foreach ($this->coursefacet as $obj){
             if($obj->getDay() == $day && $obj->getClock() == $time){
-                $result[] += $obj;       
+                $result[] = $obj;       
             }
         }
         return $result;
