@@ -22,16 +22,22 @@ class Timetable extends CI_Model {
         foreach ($this->xml->dayfacet->day as $stuff) {
             $record = new Booking($stuff);
             $record->setDay($stuff['day']);
+            $record->setCourse($stuff->course);
+            $record->setClock($stuff->clock);
             $this->dayfacet[] = $record;
         }
         foreach ($this->xml->timefacet->timeslot as $stuff) {
             $record = new Booking($stuff);
             $record->setClock($stuff['clock']);
+            $record->setDay($stuff->day);
+            $record->setCourse($stuff->course);
             $this->timefacet[] = $record;
         }
         foreach ($this->xml->coursefacet->course as $stuff) {
             $record = new Booking($stuff);
             $record->setCourse($stuff['course']);
+            $record->setClock($stuff->clock);
+            $record->setDay($stuff->day);
             $this->coursefacet[] = $record;
         }
     }
