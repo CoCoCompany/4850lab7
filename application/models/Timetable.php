@@ -87,4 +87,19 @@ class Booking extends CI_Model {
     public function setDay($in){
         $this->day = $in;
     }
+    public function getCourse(){
+        return $this->course;
+    }
+    public function getDay(){
+        return $this->day;
+    }
+    public function getClock(){
+        return $this->clock;
+    }
+    public function getInstructor(){
+        return $this->instructor;
+    }
+    public function getRoom(){
+        return $this->room;
+    }
 }
