@@ -12,43 +12,73 @@ class Timetable extends CI_Model {
     protected $timefacet = array();
     protected $dayfacet = array();
     protected $coursefacet = array();
-
+    protected $days = array('Monday', 'Tuesday', 'Wednesday');
+    protected $times = array('8:30-9:30', '9:30-10:30');
+    
     public function __construct() {
         parent::__construct();
         $this->xml = simplexml_load_file(DATAPATH . 'master.xml');
 
-  		foreach ($this->xml->dayfacet->day->booking as $booking){
-  			$record = new stdClass();
-  			$record->clock = (string) $booking->clock;
-  			$record->course = (string) $booking->course['course'];
-  			$record->instructor = (string) $booking->instructor;
-  			$record->room = (string) $booking->room;
-  			$record->day = (string) $this->xml->dayfacet->day['day'];
-  			$this->dayfacet[] = $record;
-  		}
-  		
-  		foreach ($this->xml->timefacet->timeslot->booking as $booking){
-  			$record = new stdClass();
-  			$record->course = (string) $booking->course['course'];
-  			$record->day = (string) $booking->day['day'];
-  			$record->instructor = (string) $booking->instructor;
-  			$record->room = (string) $booking->room;
-  			$record->clock = (string) $this->xml->timefacet->timeslot->clock;
-  			$this->timefacet[] = $record;
-  			$counter ++;
-  		}
-  		
-  		foreach ($this->xml->coursefacet->course->booking as $booking){
-  			$record = new stdClass();
-  			$record->clock = (string) $booking->clock;
-  			$record->day = (string) $booking->day['day'];
-  			$record->instructor = (string) $booking->instructor;
-  			$record->room = (string) $booking->room;
-  			$record->course = (string) $this->xml->coursefacet->course['course'];
-  			$this->coursefacet[] = $record;
-  			$counter ++;
-  		}
+        foreach ($this->xml->dayfacet->day as $stuff) {
+            $record = new Booking($stuff);
+            $record->setDay($stuff['day']);
+            $this->dayfacet[] = $record;
+        }
+        foreach ($this->xml->timefacet->timeslot as $stuff) {
+            $record = new Booking($stuff);
+            $record->setClock($stuff['clock']);
+            $this->timefacet[] = $record;
+        }
+        foreach ($this->xml->coursefacet->course as $stuff) {
+            $record = new Booking($stuff);
+            $record->setCourse($stuff['course']);
+            $this->coursefacet[] = $record;
+        }
     }
+    public function getChoiceDay(){
+        return $this->days;
+    }
+    public function getChoiceTime(){
+        return $this->times;
+    }
+    public function getDays() {
+        return $this->dayfacet;
+    }
+    public function getTimes() {
+        return $this->timefacet;
+    }
+    public function getCourses() {
+        return $this->coursefacet;
+    }
+    
 
+}
 
+class Booking extends CI_Model {
+
+    protected $day;
+    protected $clock;
+    protected $course;
+    protected $instructor;
+    protected $room;
+
+    public function __construct($stuff) {
+        parent::__construct();
+        $this->clock = '';
+        $this->course = '';
+        $this->day = '';
+        $this->instructor = (string) $stuff->booking['instructor'];
+        $this->room = (string) $stuff->booking['room'];
+     
+    }
+    
+    public function setCourse($in){
+        $this->course = $in;
+    }
+    public function setClock($in){
+        $this->clock = $in;
+    }
+    public function setDay($in){
+        $this->day = $in;
+    }
 }
