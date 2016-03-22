@@ -90,17 +90,24 @@ class Welcome extends Application {
 			$this->data['searchResult'] = $string;
 		}
 		else{
-			$this->data['searchResult'] = 'timetable';
+			//$this->data['searchResult'] = 'timetable';
 			//$this->load->view('search_result',$this->data);
 			$this->data['message'] = "Not bingo...";
 
 			//$this->data['bookingContent'] = 'booking';
-			$searchResult = array(
-				array('facet'=>'day', 'bookings'=>$daysSearchResult),
-				array('facet'=>'time', 'bookings'=>$timesSearchResult),
-				array('facet'=>'course', 'bookings'=>$coursesSearchResult)
-			);
-			$this->data['bookings'] = $searchResult;
+			if(count($daysSearchResult) == 0 && count($timesSearchResult) == 0 && count($coursesSearchResult) == 0){
+				$string = "No bookings found.";
+			}
+			else{
+				$searchResult = array(
+					array('facet'=>'day', 'bookings'=>$daysSearchResult),
+					array('facet'=>'time', 'bookings'=>$timesSearchResult),
+					array('facet'=>'course', 'bookings'=>$coursesSearchResult)
+				);
+				$data['searchResult'] = $this->load->view('timetable',$searchResult,TRUE);
+				$string = $this->parser->parse('timetable',$searchResult,TRUE);
+			}
+			$this->data['searchResult'] = $string;
 		}
 
 		//$this->data['searchResult'] = $searchResult;
