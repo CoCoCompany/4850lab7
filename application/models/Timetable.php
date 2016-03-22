@@ -52,25 +52,16 @@ class Timetable extends CI_Model {
 		}
 
     }
-	function getDay(){
-		if (isset($this->dayfacet[$code]))
-			return $this->dayfacet[$code];
-		else
-			return null;
+	function getDay($code){
+		return $dayfacet;
 
     }
     function getTime($code){
-		if (isset($this->timefacet[$code]))
-			return $this->timefacet[$code];
-		else
-			return null;
+		return $timefacet;
     }
     
-    function getCourse(){
-		if (isset($this->coursefacet[$code]))
-			return $this->coursefacet[$code];
-		else
-			return null;
+    function getCourse($code){
+		return $coursefacet;
     }
 
 }
