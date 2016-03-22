@@ -29,7 +29,7 @@
 				<course course="ACIT4660" />
 				<instructor>Steve Fabz</instructor>
 				<room>SW9 206</room>
-			<booking>
+			</booking>
 		</timeslot>
 	</timefacet>
 </data>
