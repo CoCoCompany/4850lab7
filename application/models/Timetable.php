@@ -118,13 +118,13 @@ class Booking extends CI_Model {
     }
     
     public function setCourse($in){
-        $this->course = $in;
+        $this->course = (string) $in;
     }
     public function setClock($in){
-        $this->clock = $in;
+        $this->clock = (string) $in;
     }
     public function setDay($in){
-        $this->day = $in;
+        $this->day = (string) $in;
     }
     public function getCourse(){
         return $this->course;
