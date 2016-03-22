@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE note SYSTEM "timetable.dtd">
+<data>
+	<dayfacet>
+		<day day="Friday">
+			<booking clock="8:30-9:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
+			<booking clock="9:30-10:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
+		</day>
+		<day day="Thursday">
+			<booking clock="9:30-10:30" course="ACIT4910" instructor="Richard" room="SW1-1205" />
+			<booking clock="10:30-11:30" course="ACIT4850" instructor="James" room="SE12-320" />
+			<booking clock="11:30-12:30" course="ACIT4850" instructor="James" room="SE12-320" />
+			<booking clock="1:30-2:30" course="ACIT4910" instructor="Richard" room="SW12-306" />
+			<booking clock="2:30-3:30" course="ACIT4910" instructor="Richard" room="SW12-306" />
+		</day>
+		<day day="Wednesday">
+			<booking clock="10:30-11:30" course="ACIT4660" instructor="Steve" room="SW12-306" />
+			<booking clock="11:30-12:30" course="ACIT4660" instructor="Steve" room="SW12-306" />
+			<booking clock="12:30-1:30" course="ACIT4850" instructor="James Parry" room="SE6-207" />
+			<booking clock="1:30-2:30" course="ACIT4850" instructor="James Parry" room="SE6-207" />
+		</day>
+	</dayfacet>
+	<coursefacet>
+		<course course="ACIT4660">
+			<booking clock="8:30-9:30" day="Friday" instructor="Steve" room="SW9-206" />
+			<booking clock="9:30-10:30" day="Friday" instructor="Steve" room="SW9-206" />
+			<booking clock="10:30-11:30" day="Wednesday" instructor="Steve" room="SW12-306" />
+			<booking clock="11:30-12:30" day="Wednesday" instructor="Steve" room="SW12-306" />
+		</course>
+		<course course="ACIT4850">
+			<booking clock="12:30-1:30" day="Wednesday" instructor="James Parry" room="SE6-207" />
+			<booking clock="1:30-2:30" day="Wednesday" instructor="James Parry" room="SE6-207" />
+			<booking clock="10:30-11:30" day="Thursday" instructor="James Parry" room="SE12-320" />
+			<booking clock="11:30-12:30" day="Thursday" instructor="James Parry" room="SE12-320" />
+		</course>
+		<course course="ACIT4910">
+			<booking clock="9:30-10:30" day="Thursday" instructor="Richard" room="SW1-1205" />
+			<booking clock="1:30-2:30" day="Thursday" instructor="Richard" room="SW12-306" />
+			<booking clock="2:30-3:30" day="Thursday" instructor="Richard" room="SW12-306" />
+		</course>
+	</coursefacet>
+	<timefacet>
+		<timeslot clock="8:30-9:30">
+			<booking course="ACIT4660" day="Friday" instructor="Steve" room="SW9-206" />
+		</timeslot>
+		<timeslot clock="9:30-10:30">
+			<booking course="ACIT4660" day="Friday" instructor="Steve" room="SW9-206" />
+			<booking course="ACIT4910" day="Thursday" instructor="Richard" room="SW1-1205" />
+		</timeslot>
+		<timeslot clock="10:30-11:30">
+			<booking day="Wednesday" course="ACIT4660" instructor="Steve" room="SW12-306" />
+			<booking day="Thursday" day="Thursday" instructor="James Parry" room="SE12-320" />
+		</timeslot>
+		<timeslot clock="11:30-12:30">
+			<booking day="Wednesday" course="ACIT4660" instructor="Steve" room="SW12-306" />
+			<booking day="Thursday" day="Thursday" instructor="James Parry" room="SE12-320" />
+		</timeslot>
+		<timeslot clock="12:30-1:30">
+			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
+		</timeslot>
+		<timeslot clock="1:30-2:30">
+			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
+			<booking day="Thursday" course="ACIT4910" instructor="Richard" room="SW12-306" />
+			
+		</timeslot>
+		<timeslot clock="1:30-2:30">
+			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
+			<booking day="Thursday" course="ACIT4910" instructor="Richard" room="SW12-306" />
+		</timeslot>
+	</timefacet>
+</data>
