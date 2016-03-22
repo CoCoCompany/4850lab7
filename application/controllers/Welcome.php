@@ -75,7 +75,7 @@ class Welcome extends Application {
 		else{
 			$this->data['message'] = "Not bingo...";
 			$this->data['searchResult'] = 'timetable';
-			$this->data['bookingContent'] = 'booking';
+			//$this->data['bookingContent'] = 'booking';
 			$searchResult = array(
 				array('facet'=>'day', 'bookings'=>$daysSearchResult),
 				array('facet'=>'time', 'bookings'=>$timesSearchResult),
@@ -90,16 +90,17 @@ class Welcome extends Application {
 
 	public function showTimetable($facet){
 		$this->data['pagebody'] = 'timetable';
-		$this->data['bookingContent'] = 'booking';
+		//$this->data['bookingContent'] = 'booking';
 		$timetable = new Timetable();
-		$facet = array();
+		$facetArray = array();
+		//$bookings = array();
 		switch($facet){
 			case 'day':
 				foreach($timetable->getDays() as $record){
 					$bookings[] = array(
 						'timeslot' => $record->getClock(),
 						'course' => $record->getCourse(),
-						'day' => $record->getDat(),
+						'day' => $record->getDay(),
 						'instructor' => $record->getInstructor(),
 						'room' => $record->getRoom()
 					);
@@ -110,7 +111,7 @@ class Welcome extends Application {
 					$bookings[] = array(
 						'timeslot' => $record->getClock(),
 						'course' => $record->getCourse(),
-						'day' => $record->getDat(),
+						'day' => $record->getDay(),
 						'instructor' => $record->getInstructor(),
 						'room' => $record->getRoom()
 					);
@@ -121,7 +122,7 @@ class Welcome extends Application {
 					$bookings[] = array(
 						'timeslot' => $record->getClock(),
 						'course' => $record->getCourse(),
-						'day' => $record->getDat(),
+						'day' => $record->getDay(),
 						'instructor' => $record->getInstructor(),
 						'room' => $record->getRoom()
 					);
@@ -129,8 +130,12 @@ class Welcome extends Application {
 				break;
 			default:
 		}
-		$this->facet[] = array('facet'=>$facet, 'bookings'=>$bookings);
-		$this->data['facets'] = $facet;
+
+		$this->facetArray[] = array('facet'=>$facet, 'bookings'=>$bookings);
+		//print_r($this->facetArray);
+		//print '<script type="text/javascript">console.log('.$facetArray.');</script>';
+		//echo $facetArray;
+		$this->data['facets'] = $this->facetArray;
 		$this->render();
 	}
 }
