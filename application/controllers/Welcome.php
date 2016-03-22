@@ -80,10 +80,14 @@ class Welcome extends Application {
 				'day' => $daysSearchResult[0]->getDay(),
 				'instructor' => $daysSearchResult[0]->getInstructor(),
 				'room' => $daysSearchResult[0]->getRoom());
-			print_r($bookingResult);
-			$this->data = array_merge($this->data, $bookingResult);
+			//print_r($bookingResult);
+
 			$data['searchResult'] = $this->load->view('booking',$bookingResult,TRUE);
-			$this->data['searchResult'] = $data['searchResult'];
+			//$this->data['searchResult'] = $data['searchResult'];
+
+			//$this->data = array_merge($this->data, $bookingResult);
+			$string = $this->parser->parse('booking',$bookingResult,TRUE);
+			$this->data['searchResult'] = $string;
 		}
 		else{
 			$this->data['searchResult'] = 'timetable';
