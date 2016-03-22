@@ -58,12 +58,35 @@ class Welcome extends Application {
 		switch($facet){
 			case 'day':
 				foreach($timetable->getDays() as $record){
-					$bookings[] = array('timeslot' => $record->clock, 'course' => $record->course, 'day' => $record->day);
+					$bookings[] = array(
+						'timeslot' => $record->clock,
+						'course' => $record->course,
+						'day' => $record->day,
+						'instructor' => $record->instructor,
+						'room' => $record->room
+					);
 				}
 				break;
 			case 'timeslot':
+				foreach($timetable->getTimes() as $record){
+					$bookings[] = array(
+						'timeslot' => $record->clock,
+						'course' => $record->course,
+						'day' => $record->day,
+						'instructor' => $record->instructor,
+						'room' => $record->room
+					);
+				}
 				break;
 			case 'course':
+				foreach($timetable->getCourses() as $record){
+					$bookings[] = array(
+						'timeslot' => $record->clock,
+						'course' => $record->course,
+						'day' => $record->day,
+						'instructor' => $record->instructor,
+						'room' => $record->room
+					);				}
 				break;
 			default:
 
