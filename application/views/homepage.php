@@ -1,18 +1,19 @@
 <div class="search">
-  <p>Search for a booking on
-    <select>
+  <form method="post" action="welcome/search">
+    Search for a booking on
+    <select name="daySelect">
       {days}
         <option value="{day}">{day}</option>
       {/days}
     </select>
     at
-    <select>
+    <select name="timeSelect">
       {times}
         <option value="{time}">{time}</option>
       {/times}
     </select>
-    <a href="welcome/search/"
-  </p>
+    <input type='submit' value='Search'>
+  </form>
 </div>
 </div>
 <div class="facets">
