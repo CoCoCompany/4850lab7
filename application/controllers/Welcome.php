@@ -97,33 +97,33 @@ class Welcome extends Application {
 			case 'day':
 				foreach($timetable->getDays() as $record){
 					$bookings[] = array(
-						'timeslot' => $record->clock,
-						'course' => $record->course,
-						'day' => $record->day,
-						'instructor' => $record->instructor,
-						'room' => $record->room
+						'timeslot' => $record->getClock(),
+						'course' => $record->getCourse(),
+						'day' => $record->getDat(),
+						'instructor' => $record->getInstructor(),
+						'room' => $record->getRoom()
 					);
 				}
 				break;
 			case 'timeslot':
 				foreach($timetable->getTimes() as $record){
 					$bookings[] = array(
-						'timeslot' => $record->clock,
-						'course' => $record->course,
-						'day' => $record->day,
-						'instructor' => $record->instructor,
-						'room' => $record->room
+						'timeslot' => $record->getClock(),
+						'course' => $record->getCourse(),
+						'day' => $record->getDat(),
+						'instructor' => $record->getInstructor(),
+						'room' => $record->getRoom()
 					);
 				}
 				break;
 			case 'course':
 				foreach($timetable->getCourses() as $record){
 					$bookings[] = array(
-						'timeslot' => $record->clock,
-						'course' => $record->course,
-						'day' => $record->day,
-						'instructor' => $record->instructor,
-						'room' => $record->room
+						'timeslot' => $record->getClock(),
+						'course' => $record->getCourse(),
+						'day' => $record->getDat(),
+						'instructor' => $record->getInstructor(),
+						'room' => $record->getRoom()
 					);
 				}
 				break;
