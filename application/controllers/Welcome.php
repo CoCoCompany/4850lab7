@@ -48,6 +48,12 @@ class Welcome extends Application {
 			$facetChoices[] = array('facet'=>$facet);
 		}
 		*/
+		$timetable = new Timetable();
+		$days = $timetable->getChoiceDay();
+		$times = $timetable->getChoiceTime();
+
+		$this->data['days'] = $days;
+		$this->data['times'] = $times;
 		$this->data['facets'] = $facets;
 		$this->render();
 	}
@@ -86,7 +92,8 @@ class Welcome extends Application {
 						'day' => $record->day,
 						'instructor' => $record->instructor,
 						'room' => $record->room
-					);				}
+					);
+				}
 				break;
 			default:
 
