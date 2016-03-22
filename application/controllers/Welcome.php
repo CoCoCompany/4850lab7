@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends Application {
 
 	function _construct(){
 		parent::_construct();
@@ -25,7 +25,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('directory')
+		$this->load->helper('directory');
 		$candidates = directory_map(DATAPATH);
 		sort($candidates);
 		foreach($candidates as $file){
@@ -35,7 +35,6 @@ class Welcome extends CI_Controller {
 		}
 
 		$this->data['bookings'] = $bookings;
-
 		$this->data['pagebody'] = 'homepage';
 		$this->render();
 
