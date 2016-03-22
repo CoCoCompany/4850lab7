@@ -3,33 +3,22 @@
 <data>
 	<dayfacet>
 		<day day="Friday">
-			<booking>
-				<clock>8:30-10:30</clock>
-				<course course="ACIT4660" />
-				<instructor>Steve Fabz</instructor>
-				<room>SW9-206</room>
-			</booking>
+			<booking clock="8:30-9:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
+                        <booking clock="9:30-10:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
 		</day>
 	</dayfacet>
 	<coursefacet>
 		<course course="ACIT4660">
-			<booking>
-				<clock>8:30-10:30</clock>
-				<instructor>Steve Fabz</instructor>
-				<room>SW9-206</room>
-				<day day="Friday" />
-			</booking>
+                        <booking clock="8:30-9:30" day="Friday" instructor="Steve" room="SW9-206" />
+                        <booking clock="9:30-10:30" day="Friday" instructor="Steve" room="SW9-206" />
 		</course>
 	</coursefacet>
 	<timefacet>
-		<timeslot>
-			<clock>8:30-9:30</clock>
-			<booking>
-				<day day="Friday" />
-				<course course="ACIT4660" />
-				<instructor>Steve Fabz</instructor>
-				<room>SW9 206</room>
-			</booking>
+		<timeslot clock="8:30-9:30">
+                    <booking course="ACIT4660" day="Friday" instructor="Steve" room="SW9-206" />
+		</timeslot>
+                <timeslot clock="9:30-10:30">
+                    <booking course="ACIT4660" day="Friday" instructor="Steve" room="SW9-206" />
 		</timeslot>
 	</timefacet>
 </data>

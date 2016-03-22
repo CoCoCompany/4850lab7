@@ -48,13 +48,51 @@ class Welcome extends Application {
 			$facetChoices[] = array('facet'=>$facet);
 		}
 		*/
+		$timetable = new Timetable();
+		$days = $timetable->getChoiceDay();
+		$times = $timetable->getChoiceTime();
+
+		$this->data['days'] = $days;
+		$this->data['times'] = $times;
 		$this->data['facets'] = $facets;
+		$this->render();
+	}
+
+	public function search(){
+		$this->data['pagebody'] = 'search_result';
+		$timetable = new Timetable();
+		$day = $this->input->post('daySelect');
+		$timeslot = $this->input->post('timeSelect');
+		$daysSearchResult = $timetable->searchByDays($day,$timeslot);
+		$timesSearchResult = $timetable->searchByTimes($day,$timeslot);
+		$coursesSearchResult = $timetable->searchByCourses($day,$timeslot);
+		if(count($daysSearchResult) == 1 && count($timesSearchResult) == 1 && count($coursesSearchResult) == 1 &&
+			$daysSearchResult[0] === $timesSearchResult[0] && $timesSearchResult[0] == $coursesSearchResult[0]){
+			$this->data['message'] = "Bingo!";
+			$this->data['searchResult'] = 'booking';
+			$this->data = array_merge($this->data, $daysSearchResult[0]);
+		}
+		else{
+			$this->data['message'] = "Not bingo...";
+			$this->data['searchResult'] = 'timetable';
+			$this->data['bookingContent'] = 'booking';
+			$searchResult = array(
+				array('facet'=>'day', 'bookings'=>$daysSearchResult),
+				array('facet'=>'time', 'bookings'=>$timesSearchResult),
+				array('facet'=>'course', 'bookings'=>$coursesSearchResult)
+			);
+			$this->data['bookings'] = $searchResult;
+		}
+
+		//$this->data['searchResult'] = $searchResult;
 		$this->render();
 	}
 
 	public function showTimetable($facet){
 		$this->data['pagebody'] = 'timetable';
+		$this->data['bookingContent'] = 'booking';
 		$timetable = new Timetable();
+		$facet = array();
 		switch($facet){
 			case 'day':
 				foreach($timetable->getDays() as $record){
@@ -86,12 +124,13 @@ class Welcome extends Application {
 						'day' => $record->day,
 						'instructor' => $record->instructor,
 						'room' => $record->room
-					);				}
+					);
+				}
 				break;
 			default:
-
 		}
-		$this->data['bookings'] = $bookings;
+		$this->facet[] = array('facet'=>$facet, 'bookings'=>$bookings);
+		$this->data['facets'] = $facet;
 		$this->render();
 	}
 }
