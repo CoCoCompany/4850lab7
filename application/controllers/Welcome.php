@@ -99,6 +99,10 @@ class Welcome extends Application {
 				$string = "No bookings found.";
 			}
 			else{
+				print_r($daysSearchResult);
+				print_r($timesSearchResult);
+				print_r($coursesSearchResult);
+				print_r($timetable->getCourses());
 				$searchResult = array(
 					array('facet'=>'day', 'bookings'=>$daysSearchResult),
 					array('facet'=>'time', 'bookings'=>$timesSearchResult),
