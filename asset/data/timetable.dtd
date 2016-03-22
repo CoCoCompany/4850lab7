@@ -1,5 +1,9 @@
 <!ELEMENT data (dayfacet,coursefacet,timefacet)>
 
+<!ELEMENT timefacet (timeslot+)>
+<!ELEMENT dayfacet (day+)>
+<!ELEMENT coursefacet (course+)>
+
 <!ELEMENT day (booking?)>
 <!ATTLIST day day (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) >
 
@@ -9,14 +13,12 @@
 <!ELEMENT timeslot (booking?)>
 <!ATTLIST timeslot clock CDATA >
 
-<!ELEMENT booking (clock?,course?,day?,instructor,room)>
+<!ELEMENT booking (#PCDATA) >
 <!ATTLIST booking course CDATA >
 <!ATTLIST booking day CDATA >
 <!ATTLIST booking clock CDATA >
-<!ATTLIST booking instructor CDATA >
-<!ATTLIST booking room CDATA >
+<!ATTLIST booking instructor CDATA #REQUIRED>
+<!ATTLIST booking room CDATA #REQUIRED>
 
-<!ELEMENT timefacet (timeslot+)>
-<!ELEMENT dayfacet (day+)>
-<!ELEMENT coursefacet (course+)>
+
 
