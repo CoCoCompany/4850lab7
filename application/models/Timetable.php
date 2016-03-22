@@ -12,8 +12,11 @@ class Timetable extends CI_Model {
     protected $timefacet = array();
     protected $dayfacet = array();
     protected $coursefacet = array();
-    protected $days = array(array('day'=>'Monday'), array('day'=>'Tuesday'), array('day'=>'Wednesday'));
-    protected $times = array(array('time'=>'8:30-9:30'),array('time'=>'9:30-10:30'));
+    protected $days = array(array('day'=>'Monday'), array('day'=>'Tuesday'), array('day'=>'Wednesday'), array('day'=>'Thursday'), array('day'=>'Friday'));
+    protected $times = array(array('time'=>'8:30-9:30'),array('time'=>'9:30-10:30'),
+        array('time'=>'10:30-11:30'),array('time'=>'11:30-12:30'),
+        array('time'=>'1:30-2:30'),array('time'=>'2:30-3:30')
+        ,array('time'=>'3:30-4:30'),array('time'=>'4:30-5:30'));
     
     public function __construct() {
         parent::__construct();
@@ -41,6 +44,41 @@ class Timetable extends CI_Model {
             $this->coursefacet[] = $record;
         }
     }
+    
+    public function searchByDays($day, $time){
+        $result = array();
+        foreach ($this->dayfacet as $obj){
+            if($obj->getDay() == $day && $obj->getClock() == $time){
+                $result[] += $obj;       
+            }
+        }
+        return $result;
+    }
+    public function searchbyTimes($day, $time){
+        $result = array();
+        foreach ($this->timefacet as $obj){
+            if($obj->getDay() == $day && $obj->getClock() == $time){
+                $result[] += $obj;       
+            }
+        }
+        return $result;
+    }
+    public function searchByCourses($day, $time){
+        $result = array();
+        foreach ($this->coursefacet as $obj){
+            if($obj->getDay() == $day && $obj->getClock() == $time){
+                $result[] += $obj;       
+            }
+        }
+        return $result;
+    }
+    
+    
+    
+    
+    
+    
+    //accessor
     public function getChoiceDay(){
         return $this->days;
     }
@@ -56,6 +94,7 @@ class Timetable extends CI_Model {
     public function getCourses() {
         return $this->coursefacet;
     }
+    
     
 
 }
