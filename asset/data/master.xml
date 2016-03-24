@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data xmlns:sxi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="master.xsd">
+<data xmlns:sxi="http://www.w3.org/2001/XMLSchema-instance">
 	<dayfacet>
 		<day whichday="Friday">
 			<booking clock="8:30-9:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
@@ -60,7 +60,7 @@
 		<timeslot whichtime="1:30-2:30">
 			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
 			<booking day="Thursday" course="ACIT4910" instructor="Richard" room="SW12-306" />
-			
+
 		</timeslot>
 		<timeslot whichtime="1:30-2:30">
 			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
