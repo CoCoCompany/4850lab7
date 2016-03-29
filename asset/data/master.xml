@@ -60,7 +60,6 @@
 		<timeslot whichtime="1:30-2:30">
 			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
 			<booking day="Thursday" course="ACIT4910" instructor="Richard" room="SW12-306" />
-
 		</timeslot>
 		<timeslot whichtime="1:30-2:30">
 			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
