@@ -37,6 +37,22 @@ class Welcome extends Application {
 		}
 		*/
 
+		$doc = new DOMDocument();
+		$doc->load(DATAPATH . 'master.xml');
+		libxml_use_internal_errors(true);
+		$validationMessage = "";
+		if($doc->schemaValidate(DATAPATH . 'master.xsd')){
+			$validationMessage = 'XML validated against schema';
+		}
+		else{
+			$validationMessage = "XML validation against schema failed.<br/>";
+			foreach(libxml_get_errors() as $error){
+				$validationMessage .= $error->message . '<br/>';
+			}
+		}
+		echo $validationMessage;
+		libxml_clear_errors();
+
 		$facets = array(
 			array('facet' => 'day'),
 			array('facet' => 'timeslot'),
