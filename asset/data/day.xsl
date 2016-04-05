@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+	
     <xsl:output method="html"/>
     <xsl:template match="/">
         <html>
@@ -33,22 +34,52 @@
         <tr>
             <td>
                 <xsl:value-of select="@whichtime"/>
-                
             </td>
-<!--            <td>
-                <xsl:value-of select="current()[@whichtime=@whichtime]/booking/@course"/>
-            </td>-->
-            <xsl:for-each select="current()[@whichtime=@whichtime]/booking">
-                <xsl:call-template name="booking"/>
-            </xsl:for-each>
+			<td>
+				<xsl:for-each select="booking">
+					<xsl:if test="@day = 'Monday'">
+						<xsl:call-template name="booking"/>
+					</xsl:if>
+				</xsl:for-each>
+			</td>
+			<td>
+				<xsl:for-each select="booking">
+					<xsl:if test="@day = 'Tuesday'">
+						<xsl:call-template name="booking"/>
+					</xsl:if>
+				</xsl:for-each>
+			</td>
+			<td>
+				<xsl:for-each select="booking">
+					<xsl:if test="@day = 'Wednesday'">
+						<xsl:call-template name="booking"/>
+					</xsl:if>
+				</xsl:for-each>
+			</td>
+			<td>
+				<xsl:for-each select="booking">
+					<xsl:if test="@day = 'Thursday'">
+						<xsl:call-template name="booking"/>
+					</xsl:if>
+				</xsl:for-each>
+			</td>
+			<td>
+				<xsl:for-each select="booking">
+					<xsl:if test="@day = 'Friday'">
+						<xsl:call-template name="booking"/>
+					</xsl:if>
+				</xsl:for-each>
+			</td>
+          
         </tr>
     </xsl:template>
     <xsl:template name="booking">
-        <td>
+        
             <xsl:value-of select="@course"/><br/>
             <xsl:value-of select="@instructor"/><br/>
             <xsl:value-of select="@room"/><br/>
-        </td>
+        
     </xsl:template>
+	
         
 </xsl:stylesheet>

@@ -2,9 +2,17 @@
 <?xml-stylesheet type="text/xsl" href="time.xsl"?>
 <data>
 	<dayfacet>
-		<day whichday="Friday">
-			<booking clock="08:30-09:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
-			<booking clock="09:30-10:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
+		<day whichday="Monday">
+		</day>
+		<day whichday="Tuesday">
+		</day>
+		
+		
+		<day whichday="Wednesday">
+			<booking clock="10:30-11:30" course="ACIT4660" instructor="Steve" room="SW12-306" />
+			<booking clock="11:30-12:30" course="ACIT4660" instructor="Steve" room="SW12-306" />
+			<booking clock="12:30-13:30" course="ACIT4850" instructor="James Parry" room="SE6-207" />
+			<booking clock="13:30-14:30" course="ACIT4850" instructor="James Parry" room="SE6-207" />
 		</day>
 		<day whichday="Thursday">
 			<booking clock="09:30-10:30" course="ACIT4910" instructor="Richard" room="SW1-1205" />
@@ -13,11 +21,9 @@
 			<booking clock="13:30-14:30" course="ACIT4910" instructor="Richard" room="SW12-306" />
 			<booking clock="14:30-15:30" course="ACIT4910" instructor="Richard" room="SW12-306" />
 		</day>
-		<day whichday="Wednesday">
-			<booking clock="10:30-11:30" course="ACIT4660" instructor="Steve" room="SW12-306" />
-			<booking clock="11:30-12:30" course="ACIT4660" instructor="Steve" room="SW12-306" />
-			<booking clock="12:30-13:30" course="ACIT4850" instructor="James Parry" room="SE6-207" />
-			<booking clock="13:30-14:30" course="ACIT4850" instructor="James Parry" room="SE6-207" />
+		<day whichday="Friday">
+			<booking clock="08:30-09:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
+			<booking clock="09:30-10:30" course="ACIT4660" instructor="Steve" room="SW9-206" />
 		</day>
 	</dayfacet>
 	<coursefacet>
@@ -65,6 +71,10 @@
 		<timeslot whichtime="14:30-15:30">
 			<booking day="Wednesday" course="ACIT4850" instructor="James Parry" room="SE6-207" />
 			<booking day="Thursday" course="ACIT4910" instructor="Richard" room="SW12-306" />
+		</timeslot>
+		<timeslot whichtime="15:30-16:30">
+		</timeslot>
+		<timeslot whichtime="16:30-17:30">
 		</timeslot>
 	</timefacet>
 </data>
